@@ -8,9 +8,9 @@
   <tbody>
     <tr *ngFor="let model of datalist">
       <ng-template ngFor let-col [ngForOf]="tableColComponent">
-        <td zhd="text" *ngIf="col.nc == 'text'" [(ngModel)]="model[col.value]" field="col.value" [forTable]="true"></td>
-        <td zhd="checkbox" *ngIf="col.nc == 'checkbox'" [(ngModel)]="model[col.value]" field="col.value" [forTable]="true"></td>
-        <td zhd="select" *ngIf="col.nc == 'select'" [(ngModel)]="model[col.value]" field="col.value" [forTable]="true"></td>
+        <td zhd="text" *ngIf="col.type == 'text'" [(ngModel)]="model[col.value]" field="col.value" [forTable]="true"></td>
+        <td zhd="checkbox" *ngIf="col.type == 'checkbox'" [(ngModel)]="model[col.value]" field="col.value" [forTable]="true"></td>
+        <td zhd="select" *ngIf="col.type == 'select'" [(ngModel)]="model[col.value]" field="col.value" [forTable]="true"></td>
       </ng-template>
     </tr>
   </tbody>

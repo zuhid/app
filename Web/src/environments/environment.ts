@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  identityApi: "http://localhost:18001/identity",
-  contactApi: "http://localhost:18001/contact",
+  identityApi: "http://localhost:18001",
+  contactApi: "http://localhost:18001",
   secretKey: "secretKey",
   cacheDuration: 10 * 60 * 1000, // cache for 10 minutes
 };
