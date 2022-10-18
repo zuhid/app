@@ -41,5 +41,8 @@
   "prettier.printWidth": 150,
   "[ignore]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "[csharp]": {
+    "editor.defaultFormatter": "ms-dotnettools.csharp"
   }
 }

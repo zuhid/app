@@ -1,0 +1,20 @@
+[
+  {
+    "Id": "2a2886c4-b36c-476a-ba14-44f6a4ac8b55",
+    "UpdatedById": "b55ebae9-e380-4d96-97eb-a3d2a3d6fb9a",
+    "Updated": "2000-01-01",
+    "Text": "Amazon"
+  },
+  {
+    "Id": "56dba2a8-5e2d-401b-b810-e5e01abcb3c9",
+    "UpdatedById": "b55ebae9-e380-4d96-97eb-a3d2a3d6fb9a",
+    "Updated": "2000-01-01",
+    "Text": "Google"
+  },
+  {
+    "Id": "f6f48f79-a8d0-4f8a-8260-106b78c0ed35",
+    "UpdatedById": "b55ebae9-e380-4d96-97eb-a3d2a3d6fb9a",
+    "Updated": "2000-01-01",
+    "Text": "Microsoft"
+  }
+]
