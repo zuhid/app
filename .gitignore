@@ -1,11 +1,11 @@
 .angular
 .git
 .vs
+**/TestCases/*.html
 bin
 dist
 Migrations
 node_modules
 obj
+TestResults
 tmp
-**/TestCases/*.html
-**/TestResults
