@@ -1,0 +1,13 @@
+<div id="{{ cardId() }}" class="card">
+  <div class="card-header">
+    <span>{{ header }}</span>
+    <a class="card-reset" (click)="resetClick.emit()">R</a>
+    <a class="card-help" (click)="helpClick.emit()">?</a>
+  </div>
+  <div class="card-body">
+    <form>
+      <ng-content></ng-content>
+      <zhd-button [text]="submit" (click)="submitClick.emit()"></zhd-button>
+    </form>
+  </div>
+</div>

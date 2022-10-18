@@ -1,0 +1,36 @@
+.ds-container {
+  position: relative;
+}
+
+.items,
+.drops {
+  display: flex;
+  flex-wrap: wrap;
+
+  > *,
+  > * {
+    width: 400px;
+    height: 500px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1);
+    margin: 0px 20px 20px 0px;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+}
+
+.items {
+  > * {
+    background-color: var(--sub-bg-color);
+  }
+}
+
+.drops {
+  position: absolute;
+  top: 0;
+  > * {
+    border-radius: 10px;
+    background-color: var(--sub-bg-color-invert);
+    opacity: 0.1;
+  }
+}

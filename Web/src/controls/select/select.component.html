@@ -1,0 +1,12 @@
+<div *ngIf="!forTable" class="form-floating">
+  <select id="{{ field }}">
+    <option></option>
+    <option *ngFor="let option of options" [id]="option">{{ option }}</option>
+  </select>
+  <label for="{{ field }}">{{ label }}</label>
+</div>
+
+<select *ngIf="forTable" [(ngModel)]="text">
+  <option></option>
+  <option *ngFor="let option of options" [id]="option">{{ option }}</option>
+</select>

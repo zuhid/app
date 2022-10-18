@@ -1,0 +1,16 @@
+<div class="ds-container">
+  <div class="items">
+    <div draggable="true" [style.order]="getOrder('a')" (dragstart)="dragstart($event, 'a')" (dragend)="dragend()">a</div>
+    <div draggable="true" [style.order]="getOrder('b')" (dragstart)="dragstart($event, 'b')" (dragend)="dragend()">b</div>
+    <div draggable="true" [style.order]="getOrder('c')" (dragstart)="dragstart($event, 'c')" (dragend)="dragend()" style="width: 820px">c</div>
+    <div draggable="true" [style.order]="getOrder('d')" (dragstart)="dragstart($event, 'd')" (dragend)="dragend()">d</div>
+    <div draggable="true" [style.order]="getOrder('e')" (dragstart)="dragstart($event, 'e')" (dragend)="dragend()">e</div>
+    <div draggable="true" [style.order]="getOrder('f')" (dragstart)="dragstart($event, 'f')" (dragend)="dragend()">f</div>
+    <div draggable="true" [style.order]="getOrder('g')" (dragstart)="dragstart($event, 'g')" (dragend)="dragend()">g</div>
+    <div draggable="true" [style.order]="getOrder('h')" (dragstart)="dragstart($event, 'h')" (dragend)="dragend()">h</div>
+    <div draggable="true" [style.order]="getOrder('i')" (dragstart)="dragstart($event, 'i')" (dragend)="dragend()">i</div>
+  </div>
+  <div class="drops" [style.z-index]="zindex">
+    <div *ngFor="let i of [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]" (drop)="drop($event, i)" (dragover)="$event.preventDefault()"></div>
+  </div>
+</div>

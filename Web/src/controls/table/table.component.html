@@ -1,0 +1,17 @@
+<zhd-button text="Add" (click)="add()"></zhd-button>
+<table>
+  <thead>
+    <tr>
+      <th *ngFor="let col of tableColComponent" style="text-align: center">{{ col.label }}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let model of datalist">
+      <ng-template ngFor let-col [ngForOf]="tableColComponent">
+        <td zhd="text" *ngIf="col.nc == 'text'" [(ngModel)]="model[col.value]" field="col.value" [forTable]="true"></td>
+        <td zhd="checkbox" *ngIf="col.nc == 'checkbox'" [(ngModel)]="model[col.value]" field="col.value" [forTable]="true"></td>
+        <td zhd="select" *ngIf="col.nc == 'select'" [(ngModel)]="model[col.value]" field="col.value" [forTable]="true"></td>
+      </ng-template>
+    </tr>
+  </tbody>
+</table>

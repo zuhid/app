@@ -1,0 +1,25 @@
+@use "~/node_modules/bootstrap/scss/bootstrap.scss";
+
+body {
+  background-color: #eef1f3;
+}
+.card {
+  margin: 10px;
+}
+table {
+  @extend .table;
+}
+input[type="text"] {
+  @extend .form-control;
+}
+input[type="checkbox"] {
+  @extend .form-check-input;
+  margin: auto;
+  display: flex;
+}
+input[type="date"] {
+  @extend .form-control;
+}
+select {
+  @extend .form-select;
+}
