@@ -23,6 +23,6 @@ start-api() { (
   dotnet run
 ); }
 
-# build-server
-build-database "Identity.Api"
-# start-api
+build-server
+build-database "Identity"
+# start-api "Identity"

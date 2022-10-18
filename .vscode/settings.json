@@ -6,7 +6,8 @@
     "**/dist": true,
     "**/node_modules": true,
     "**/obj": true,
-    "**/package-lock.json": true
+    "**/package-lock.json": true,
+    "**/TestResults": true
   },
   "files.watcherExclude": {
     "**/.angular": true,
@@ -15,7 +16,8 @@
     "**/dist": true,
     "**/node_modules": true,
     "**/obj": true,
-    "**/package-lock.json": true
+    "**/package-lock.json": true,
+    "**/TestResults": true
   },
   "search.exclude": {
     "**/.angular": true,
@@ -24,7 +26,8 @@
     "**/dist": true,
     "**/node_modules": true,
     "**/obj": true,
-    "**/package-lock.json": true
+    "**/package-lock.json": true,
+    "**/TestResults": true
   },
   "[json]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
   "[shellscript]": { "editor.defaultFormatter": "foxundermoon.shell-format" },

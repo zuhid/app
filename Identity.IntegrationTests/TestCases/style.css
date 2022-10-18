@@ -1,0 +1,54 @@
+header {
+  display: flex;
+  align-items: stretch;
+  font-size: x-large;
+  padding: 5px;
+  border: 1px solid #c0c0c0;
+  background-color: #f0f0f0;
+}
+
+header span {
+  flex-grow: 1;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 25px 0px;
+  transition: 0.3s;
+  border: 1px solid #f0f0f0;
+}
+
+table tr td:nth-child(n + 2) {
+  width: 25%;
+}
+
+thead tr {
+  background-color: #f0f0f0;
+}
+
+td {
+  border-top: 1px solid #c0c0c0;
+}
+
+th {
+  text-align: left;
+  padding: 5px;
+}
+
+.gap {
+  height: 30px;
+  background-color: transparent;
+}
+
+.success {
+  /*background-color: hsl(134, 41%, 88%);*/
+}
+
+.failure {
+  background-color: hsl(355, 90%, 91%);
+}
+
+.token {
+  word-break: break-all;
+}

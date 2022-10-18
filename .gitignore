@@ -7,3 +7,5 @@ Migrations
 node_modules
 obj
 tmp
+**/TestCases/*.html
+**/TestResults
