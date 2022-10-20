@@ -12,10 +12,31 @@ import { SvgComponent } from "./svg/svg.component";
 import { TableComponent } from "./table/table.component";
 import { TableColComponent } from "./table-col/table-col.component";
 import { SelectComponent } from "./select/select.component";
+import { MultiselectComponent } from "./multiselect/multiselect.component";
+import { TypeaheadModule } from "ngx-bootstrap/typeahead";
 
 @NgModule({
-  declarations: [CardComponent, TextComponent, CheckboxComponent, ButtonComponent, SvgComponent, TableComponent, TableColComponent, SelectComponent],
-  imports: [CommonModule, FormsModule, CommonModule, PipesModule],
-  exports: [CardComponent, TextComponent, CheckboxComponent, ButtonComponent, SelectComponent, TableComponent, TableColComponent],
+  declarations: [
+    ButtonComponent,
+    CardComponent,
+    CheckboxComponent,
+    MultiselectComponent,
+    SelectComponent,
+    SvgComponent,
+    TableColComponent,
+    TableComponent,
+    TextComponent,
+  ],
+  imports: [CommonModule, FormsModule, PipesModule, TypeaheadModule.forRoot()],
+  exports: [
+    ButtonComponent,
+    CardComponent,
+    CheckboxComponent,
+    MultiselectComponent,
+    SelectComponent,
+    TableColComponent,
+    TableComponent,
+    TextComponent,
+  ],
 })
 export class ControlsModule {}

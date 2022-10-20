@@ -1,5 +1,5 @@
 <div *ngIf="!forTable" class="form-check">
-  <input id="{{ field }}" type="checkbox" [(ngModel)]="checked" />
+  <input id="{{ field }}" type="checkbox" [(ngModel)]="checked" style="" />
   <label for="{{ field }}">{{ label }}</label>
 </div>
-<input *ngIf="forTable" id="{{ field }}" type="checkbox" [(ngModel)]="checked" />
+<input *ngIf="forTable" id="{{ field }}" type="checkbox" [(ngModel)]="checked" style="margin: 10px auto" />

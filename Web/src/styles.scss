@@ -23,3 +23,6 @@ input[type="date"] {
 select {
   @extend .form-select;
 }
+input[ng-reflect-typeahead] {
+  @extend .form-control;
+}

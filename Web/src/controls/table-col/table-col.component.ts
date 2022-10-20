@@ -5,4 +5,5 @@ export class TableColComponent {
   @Input() label!: string;
   @Input() type!: string;
   @Input() value!: string;
+  @Input() listUrl!: string;
 }

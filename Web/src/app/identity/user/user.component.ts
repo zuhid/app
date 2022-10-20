@@ -1,11 +1,13 @@
 import { Component, OnInit } from "@angular/core";
 import { User } from "src/models";
 import { UserService } from "src/services";
+import { environment } from "src/environments/environment";
 
 @Component({ templateUrl: "./user.component.html" })
 export class UserComponent implements OnInit {
   public originalModelList = Array<User>();
   public userModelList = Array<User>();
+  public landingPageUrl = `${environment.identityApi}/list/client`;
 
   constructor(private userService: UserService) {}
 

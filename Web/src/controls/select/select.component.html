@@ -6,7 +6,7 @@
   <label for="{{ field }}">{{ label }}</label>
 </div>
 
-<select *ngIf="forTable" [(ngModel)]="text">
+<select *ngIf="forTable" id="{{ field }}" [(ngModel)]="text">
   <option></option>
   <option *ngFor="let option of options" [id]="option">{{ option }}</option>
 </select>

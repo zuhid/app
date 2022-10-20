@@ -3,9 +3,7 @@ import { Login, LoginResponse } from "src/models";
 import { ApiService, CacheService } from "src/services";
 import { environment } from "src/environments/environment";
 
-@Injectable({
-  providedIn: "root",
-})
+@Injectable({ providedIn: "root" })
 export class IdentityService {
   constructor(private apiService: ApiService, private cacheService: CacheService) {}
 
