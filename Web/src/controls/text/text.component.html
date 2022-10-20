@@ -1,5 +1,5 @@
 <div *ngIf="!forTable" class="form-floating mb-3">
-  <input [(ngModel)]="text" type="text" id="{{ field }}" placeholder="{{ label }}" />
+  <input id="{{ field }}" type="text" [(ngModel)]="text" placeholder="{{ label }}" />
   <label for="{{ field }}">{{ label }}</label>
 </div>
-<input *ngIf="forTable" [(ngModel)]="text" type="text" placeholder="{{ label }}" />
+<input *ngIf="forTable" id="{{ field }}" type="text" [(ngModel)]="text" placeholder="{{ label }}" />
