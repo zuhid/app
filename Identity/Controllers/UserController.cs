@@ -40,6 +40,8 @@ public class UserController : BaseController {
       LastName = model.LastName,
       PhoneNumber = model.PhoneNumber,
       TwoFactorEnabled = model.TwoFactorEnabled,
+      Roles = model.Roles,
+      Clients = model.Clients,
       LandingPage = model.LandingPage
     };
     var result = isAdd ? (await repository.Add(entity)) : (await repository.Update(entity));

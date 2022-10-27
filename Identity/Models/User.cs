@@ -8,5 +8,7 @@ public class User : BaseModel {
   public string FirstName { get; set; }
   public string LastName { get; set; }
   public bool TwoFactorEnabled { get; set; }
+  public string Roles { get; set; }
+  public string Clients { get; set; }
   public string LandingPage { get; set; }
 }
