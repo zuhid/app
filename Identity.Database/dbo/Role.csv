@@ -1,5 +1,0 @@
-Column,Datatype,Required,Length,FkTable,FkColumn
-Id,uniqueidentifier,1,,,
-UpdatedById,uniqueidentifier,1,,User,Id
-Updated,datetime2,1,,,
-Text,nvarchar,1,100,,
