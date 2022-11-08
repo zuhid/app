@@ -21,5 +21,9 @@ public class ListController : BaseController {
   /// </summary>
   // [Microsoft.AspNetCore.Authorization.AllowAnonymous]
   [HttpGet("Client")]
-  public async Task<List<LookupList>> Client() => await repository.Get<ClientEntity>();
+  public async Task<List<string>> Client() => await repository.GetUniqueList<ClientEntity>();
+
+  [HttpGet("Role")]
+  public async Task<List<string>> Role() => await repository.GetUniqueList<ClientEntity>();
+
 }
