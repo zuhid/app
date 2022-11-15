@@ -8,7 +8,8 @@ namespace Zuhid.Identity.Controllers;
 /// <summary>
 /// Returns lists
 /// </summary>
-public class ListController : BaseController {
+public class ListController : BaseController
+{
   private readonly ListRepository repository;
 
   /// <summary>
@@ -24,6 +25,6 @@ public class ListController : BaseController {
   public async Task<List<string>> Client() => await repository.GetUniqueList<ClientEntity>();
 
   [HttpGet("Role")]
-  public async Task<List<string>> Role() => await repository.GetUniqueList<ClientEntity>();
+  public async Task<List<string>> Role() => await repository.GetUniqueList<RoleEntity>();
 
 }

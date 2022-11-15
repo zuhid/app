@@ -2,8 +2,8 @@
   <zhd-table [datalist]="userModelList">
     <zhd-table-col label="Email" type="text" value="email"></zhd-table-col>
     <zhd-table-col label="Two Factor Enabled" type="checkbox" value="twoFactorEnabled"></zhd-table-col>
-    <zhd-table-col label="Landing Page" type="select" value="landingPage" [listUrl]="landingPageUrl"></zhd-table-col>
-    <zhd-table-col label="Roles" type="multiselect" value="roles"></zhd-table-col>
-    <zhd-table-col label="Clients" type="multiselect" value="clients"></zhd-table-col>
+    <!-- <zhd-table-col label="Landing Page" type="select" value="landingPage" [listUrl]="selectClient"></zhd-table-col> -->
+    <zhd-table-col label="Role" type="select" value="role" [listUrl]="selectRole"></zhd-table-col>
+    <zhd-table-col label="Clients" type="multiselect" value="clients" [listUrl]="selectClient"></zhd-table-col>
   </zhd-table>
 </div>

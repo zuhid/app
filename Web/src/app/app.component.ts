@@ -2,6 +2,6 @@ import { Component } from "@angular/core";
 
 @Component({
   selector: "zhd-root",
-  template: "<router-outlet></router-outlet>",
+  templateUrl: "./app.component.html",
 })
 export class AppComponent {}

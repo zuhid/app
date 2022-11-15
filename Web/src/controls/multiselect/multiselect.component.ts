@@ -1,5 +1,6 @@
 import { Component, Input, forwardRef } from "@angular/core";
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from "@angular/forms";
+import { ApiService } from "src/services";
 import { BaseControlComponent } from "../baseControl";
 
 @Component({
@@ -11,6 +12,19 @@ export class MultiselectComponent extends BaseControlComponent implements Contro
   @Input() field!: string; // the field of the model bound to this control
   @Input() label!: string; // label for the field
   @Input() forTable: boolean = false; // render control to be displayed inside table
+  @Input() listUrl!: string;
+  selected?: string;
+  options: string[] = [];
+
+  constructor(private apiService: ApiService) {
+    super();
+  }
+
+  ngOnInit(): void {
+    this.apiService.get(this.listUrl, "", true).then(res => {
+      this.options = res.map((n: any) => n.text ?? n);
+    });
+  }
 
   // Standard implementation begin
   private _text = "";
@@ -30,7 +44,4 @@ export class MultiselectComponent extends BaseControlComponent implements Contro
     }
   }
   // Standard implementation end
-
-  selected?: string;
-  options: string[] = ["dashboard", "identity/user", "chart", "page/page1", "page/page2"];
 }

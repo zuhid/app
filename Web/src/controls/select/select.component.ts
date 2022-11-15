@@ -11,16 +11,18 @@ import { BaseControlComponent } from "../baseControl";
 export class SelectComponent extends BaseControlComponent implements ControlValueAccessor, OnInit {
   @Input() field!: string; // the field of the model bound to this control
   @Input() label!: string; // label for the field
-  @Input() listUrl!: string;
   @Input() forTable: boolean = false; // render control to be displayed inside table
+  @Input() listUrl!: string;
+  selected?: string;
+  options: string[] = [];
 
   constructor(private apiService: ApiService) {
     super();
   }
 
   ngOnInit(): void {
-    this.apiService.get(this.listUrl).then(res => {
-      this.options = res.map((n: any) => n.text);
+    this.apiService.get(this.listUrl, "", true).then(res => {
+      this.options = res.map((n: any) => n.text ?? n);
     });
   }
 
@@ -42,7 +44,4 @@ export class SelectComponent extends BaseControlComponent implements ControlValu
     }
   }
   // Standard implementation end
-
-  selected?: string;
-  options: string[] = [];
 }

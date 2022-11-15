@@ -14,6 +14,7 @@ import { TableColComponent } from "./table-col/table-col.component";
 import { SelectComponent } from "./select/select.component";
 import { MultiselectComponent } from "./multiselect/multiselect.component";
 import { TypeaheadModule } from "ngx-bootstrap/typeahead";
+import { ToastComponent } from "./toast/toast.component";
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { TypeaheadModule } from "ngx-bootstrap/typeahead";
     TableColComponent,
     TableComponent,
     TextComponent,
+    ToastComponent,
   ],
   imports: [CommonModule, FormsModule, PipesModule, TypeaheadModule.forRoot()],
   exports: [
@@ -37,6 +39,7 @@ import { TypeaheadModule } from "ngx-bootstrap/typeahead";
     TableColComponent,
     TableComponent,
     TextComponent,
+    ToastComponent,
   ],
 })
 export class ControlsModule {}

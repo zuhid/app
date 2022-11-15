@@ -7,7 +7,8 @@ import { environment } from "src/environments/environment";
 export class UserComponent implements OnInit {
   public originalModelList = Array<User>();
   public userModelList = Array<User>();
-  public landingPageUrl = `${environment.identityApi}/list/client`;
+  public selectClient = `${environment.identityApi}/list/client`;
+  public selectRole = `${environment.identityApi}/list/role`;
 
   constructor(private userService: UserService) {}
 

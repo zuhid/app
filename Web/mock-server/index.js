@@ -2,7 +2,6 @@ var http = require("http");
 var fs = require("fs");
 const url = require("url");
 const open = require("open");
-const { Console } = require("console");
 
 const port = 5001;
 const headers = { "Content-Type": "application/json" };

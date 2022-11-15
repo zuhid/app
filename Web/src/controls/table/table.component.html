@@ -10,8 +10,15 @@
       <ng-template ngFor let-col [ngForOf]="tableColComponent">
         <td zhd="text" *ngIf="col.type == 'text'" [(ngModel)]="model[col.value]" field="col.value" [forTable]="true"></td>
         <td zhd="checkbox" *ngIf="col.type == 'checkbox'" [(ngModel)]="model[col.value]" field="col.value" [forTable]="true"></td>
-        <td zhd="select" *ngIf="col.type == 'select'" [(ngModel)]="model[col.value]" field="col.value" [listUrl]="col.listUrl" [forTable]="true"></td>
-        <td zhd="multiselect" *ngIf="col.type == 'multiselect'" [(ngModel)]="model[col.value]" field="col.value" [forTable]="true"></td>
+        <td zhd="select" *ngIf="col.type == 'select'" [(ngModel)]="model[col.value]" field="col.value" [forTable]="true" [listUrl]="col.listUrl"></td>
+        <td
+          zhd="multiselect"
+          *ngIf="col.type == 'multiselect'"
+          [(ngModel)]="model[col.value]"
+          field="col.value"
+          [forTable]="true"
+          [listUrl]="col.listUrl"
+        ></td>
       </ng-template>
     </tr>
   </tbody>
