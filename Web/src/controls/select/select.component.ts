@@ -13,7 +13,6 @@ export class SelectComponent extends BaseControlComponent implements ControlValu
   @Input() label!: string; // label for the field
   @Input() forTable: boolean = false; // render control to be displayed inside table
   @Input() listUrl!: string;
-  selected?: string;
   options: string[] = [];
 
   constructor(private apiService: ApiService) {

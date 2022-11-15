@@ -1,5 +1,5 @@
 <div *ngIf="!forTable" class="form-floating">
-  <input *ngIf="forTable" id="{{ field }}" [(ngModel)]="text" [typeahead]="options" [typeaheadMultipleSearch]="true" />
+  <input *ngIf="forTable" id="{{ field }}" [(ngModel)]="text" [typeahead]="filteredOptions" [typeaheadMultipleSearch]="true" />
   <label for="{{ field }}">{{ label }}</label>
 </div>
-<input *ngIf="forTable" id="{{ field }}" [(ngModel)]="text" [typeahead]="options" [typeaheadMultipleSearch]="true" />
+<input *ngIf="forTable" id="{{ field }}" [(ngModel)]="text" [typeahead]="filteredOptions" [typeaheadMultipleSearch]="true" />

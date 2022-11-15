@@ -13,8 +13,12 @@ export class MultiselectComponent extends BaseControlComponent implements Contro
   @Input() label!: string; // label for the field
   @Input() forTable: boolean = false; // render control to be displayed inside table
   @Input() listUrl!: string;
-  selected?: string;
   options: string[] = [];
+
+  get filteredOptions() {
+    let selectedItems = this.text?.split(",") ?? [];
+    return this.options.filter(n => !selectedItems.includes(n));
+  }
 
   constructor(private apiService: ApiService) {
     super();
@@ -23,6 +27,7 @@ export class MultiselectComponent extends BaseControlComponent implements Contro
   ngOnInit(): void {
     this.apiService.get(this.listUrl, "", true).then(res => {
       this.options = res.map((n: any) => n.text ?? n);
+      // this.filteredOptions = this.options;
     });
   }
 
