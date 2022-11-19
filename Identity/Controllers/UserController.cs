@@ -1,14 +1,13 @@
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Zuhid.BaseApi;
 using Zuhid.BaseApi.Models;
 using Zuhid.Identity.Entities;
-using Zuhid.Identity.Mappers;
 using Zuhid.Identity.Models;
 using Zuhid.Identity.Repositories;
 
 namespace Zuhid.Identity.Controllers;
 
+[Microsoft.AspNetCore.Authorization.AllowAnonymous]
 public class UserController : BaseController {
 
   private readonly UserRepository repository;

@@ -14,20 +14,16 @@ public class ActionFilter : IActionFilter {
   public void OnActionExecuting(ActionExecutingContext context) { }
 
   public void OnActionExecuted(ActionExecutedContext context) {
+    var path = $"{context.ActionDescriptor.RouteValues["action"]}: {context.HttpContext.Request.Path}";
+
     var objectResult = context.Result as ObjectResult;
-    if (objectResult != null) {
-      var controllerMethod = $"{context.ActionDescriptor.RouteValues["controller"]}/{context.ActionDescriptor.RouteValues["action"]}";
-      var queryString = context.HttpContext.Request.QueryString.Value;
-      logger.LogInformation($"{controllerMethod}{queryString} -> {JsonSerializer.Serialize(objectResult.Value, jsonSerializerOptions)}");
-    } else if (context.Exception != null) {
-      logger.LogError(new EventId(11, context.Controller.ToString()), JsonSerializer.Serialize(new {
-        context.Exception.Message,
-        context.Exception.StackTrace,
-      }));
-    }
-    // If ModelState is invalid then return a badrequest
     if (!context.ModelState.IsValid) {
+      // log the bad request
+      logger.LogWarning(new EventId(400), path);
       context.Result = new BadRequestObjectResult(context.ModelState);
+    } else if (objectResult != null) {
+      // log the valid response
+      logger.LogInformation(new EventId(context.HttpContext.Response.StatusCode), $"{path} -> {JsonSerializer.Serialize(objectResult.Value, jsonSerializerOptions)}");
     }
   }
 
@@ -38,20 +34,3 @@ public class ActionFilter : IActionFilter {
   };
 
 }
-
-// public void OnActionExecuting(ActionExecutingContext context) {
-//   var hashtable = new Hashtable();
-//   hashtable.Add($"{context.ActionDescriptor.RouteValues["controller"]}/{context.ActionDescriptor.RouteValues["action"]}", context.ActionArguments);
-//   logger.LogInformation(null, JsonSerializer.Serialize(hashtable, jsonSerializerOptions));
-// }
-
-// public void OnActionExecuting(ActionExecutingContext context) {
-//   foreach (var item in context.ActionArguments) {
-//     _logger.LogInformation(new EventId(0, context.HttpContext.User.Identity.Name), $"{context.ActionDescriptor.DisplayName} ({item.Key}) : {JsonConvert.SerializeObject(item.Value)}");
-//   }
-// }
-
-// public void OnActionExecuted(ActionExecutedContext context) {
-//   _logger.LogInformation(new EventId(0, context.HttpContext.User.Identity.Name), $"{context.ActionDescriptor.DisplayName}: ActionExecutedContext {JsonConvert.SerializeObject(context.Result)}");
-// }
-

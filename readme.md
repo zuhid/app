@@ -9,3 +9,9 @@
 dotnet run --project Identity
 npm --prefix Web run start
 ```
+
+To Kill already running localhost
+
+```
+sudo kill -9 `sudo lsof -t -i:18001`
+```

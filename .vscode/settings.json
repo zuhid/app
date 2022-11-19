@@ -39,7 +39,11 @@
   "editor.insertSpaces": true,
   "editor.tabSize": 2,
   "files.insertFinalNewline": true,
-  "omnisharp.enableEditorConfigSupport": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true,
+    "source.organizeImports": true,
+    "source.sortMembers": true
+  },
   "prettier.arrowParens": "avoid",
   "prettier.printWidth": 150,
   "[ignore]": {
@@ -47,5 +51,8 @@
   },
   "[csharp]": {
     "editor.defaultFormatter": "ms-dotnettools.csharp"
+  },
+  "[properties]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
   }
 }

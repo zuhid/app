@@ -27,7 +27,7 @@ public static class ServicesConfigurationExtension {
       .AddControllers(options => {
         options.Filters.Add(new AuthorizeFilter());
         options.Filters.Add(typeof(ActionFilter));
-        // options.Filters.Add(typeof(ExceptionFilter));
+        options.Filters.Add(typeof(ExceptionFilter));
         // options.Filters.Add(new ProducesAttribute("application/json", "application/xml", "text/csv"));
         // options.OutputFormatters.Add(new XmlSerializerOutputFormatter());
         options.OutputFormatters.Add(new CsvFormatter());

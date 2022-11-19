@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 using Zuhid.BaseApi;
-using Zuhid.BaseApi.Models;
 using Zuhid.Identity.Entities;
 
 namespace Zuhid.Identity.Controllers;
@@ -8,8 +7,7 @@ namespace Zuhid.Identity.Controllers;
 /// <summary>
 /// Returns lists
 /// </summary>
-public class ListController : BaseController
-{
+public class ListController : BaseController {
   private readonly ListRepository repository;
 
   /// <summary>

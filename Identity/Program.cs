@@ -1,6 +1,4 @@
-using Microsoft.AspNetCore.Identity;
 using Zuhid.BaseApi;
-using Zuhid.Identity.Entities;
 using Zuhid.Tools;
 
 namespace Zuhid.Identity;
@@ -8,7 +6,6 @@ namespace Zuhid.Identity;
 public class Program {
 
   public static void Main(string[] args) {
-
     // services
     var builder = WebApplication.CreateBuilder(args);
     var appSetting = new AppSetting(builder.Configuration);
