@@ -6,7 +6,6 @@ public static class WebApplicationExtension {
     if (env.IsDevelopment()) {
       app.UseDeveloperExceptionPage();
     }
-    // app.AddProvider(new DatabaseLoggerProvider(app.Configuration.GetConnectionString("Log")));
     app.UseSwagger();
     app.UseSwaggerUI(c => c.SwaggerEndpoint($"/swagger/v{version}/swagger.json", $"{name} v{version}"));
     app.UseCors(CORS_ORIGIN);

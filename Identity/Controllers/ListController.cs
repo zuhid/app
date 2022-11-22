@@ -15,6 +15,9 @@ public class ListController : BaseController {
   /// </summary>
   public ListController(IdentityDbContext dbContext) => this.repository = new ListRepository(dbContext);
 
+  [HttpGet("Exception")]
+  public Task<List<string>> Exception() => throw new Exception("ddddddddddddddd");
+
   /// <summary>
   /// Gets all the clients
   /// </summary>
