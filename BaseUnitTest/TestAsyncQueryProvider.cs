@@ -1,7 +1,7 @@
 using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore.Query;
 
-namespace Zuhid.BaseIntegrationTest;
+namespace Zuhid.BaseUnitTest;
 
 public class TestAsyncQueryProvider<TEntity> : IAsyncQueryProvider {
   private readonly IQueryProvider inner;

@@ -29,7 +29,7 @@ public class JwtTokenService : ITokenService {
     };
   }
 
-  public string Build(Guid id, IList<Claim> claims, IList<string> roles) {
+  public string Build(Guid id, IList<string> roles, IList<Claim> claims) {
     // put the roles in the claims
     foreach (var role in roles) {
       claims.Add(new Claim(ClaimTypes.Role, role));
@@ -57,5 +57,9 @@ public class JwtTokenService : ITokenService {
       rsa.ImportRSAPublicKey(Convert.FromBase64String(identityModel.PublicKey), out _);
       return new RsaSecurityKey(rsa);
     }
+  }
+
+  public string Build(Guid id, IList<string> roles, IList<string> clients, IList<string> policies) {
+    throw new NotImplementedException();
   }
 }

@@ -13,7 +13,7 @@ public class ExceptionFilter : IExceptionFilter {
 
   public void OnException(ExceptionContext context) {
     // Log the exception
-    logger.LogError(new EventId(100, context.HttpContext.Request.Path.Value), context.Exception, JsonSerializer.Serialize(new {
+    logger.LogError(new EventId(100000, context.HttpContext.Request.Path.Value), context.Exception, JsonSerializer.Serialize(new {
       context.HttpContext.User.Identity.Name,
       context.HttpContext.Request.Path.Value,
       context.Exception.Message

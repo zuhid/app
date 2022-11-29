@@ -7,6 +7,9 @@
     "PasswordHash": "AJiLztRPZXHOKsAFQUh00aFgb1EmXWJPbUsLtTmlllmlr3i91zJfvg0II+Z2YOt05Q==",
     "FirstName": "Admin",
     "LastName": "Zuhid",
+    "Role": "Administrator",
+    "Clients": "Amazon,Microsoft",
+    "Policies": "page/page2,Chart",
     "LandingPage": "identity/user"
   }
 ]

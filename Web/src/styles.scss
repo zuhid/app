@@ -9,16 +9,15 @@ body {
 table {
   @extend .table;
 }
-input[type="text"] {
+input[type="text"],
+input[type="password"],
+input[type="date"] {
   @extend .form-control;
 }
 input[type="checkbox"] {
   @extend .form-check-input;
   margin: auto;
   display: flex;
-}
-input[type="date"] {
-  @extend .form-control;
 }
 select {
   @extend .form-select;

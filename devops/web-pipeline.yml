@@ -1,0 +1,51 @@
+trigger:
+  - none
+  # - master
+
+pool:
+  name: Default
+
+steps:
+  - bash: |
+      npm install --no-fund
+      npm run build
+      npm run test
+    displayName: "Build and Test"
+    workingDirectory: "Web"
+
+  - task: PublishTestResults@2
+    displayName: "Publish Test Results"
+    inputs:
+      testResultsFormat: "JUnit"
+      testResultsFiles: "Web/tmp/junit/TESTS-*.xml"
+
+  - task: PublishCodeCoverageResults@1
+    displayName: "Publish Code Coverage Results"
+    inputs:
+      codeCoverageTool: "Cobertura"
+      summaryFileLocation: "$(Build.SourcesDirectory)/Web/tmp/cobertura/cobertura-coverage.xml"
+
+  - task: ArchiveFiles@2
+    displayName: "Archive files"
+    inputs:
+      rootFolderOrFile: "$(Build.SourcesDirectory)/Web/dist/web"
+      includeRootFolder: false
+      archiveType: zip
+      archiveFile: $(Build.ArtifactStagingDirectory)/web.zip
+      replaceExistingArchive: true
+
+  - task: PublishBuildArtifacts@1
+    displayName: "Publish Artifact"
+    inputs:
+      PathtoPublish: "$(Build.ArtifactStagingDirectory)/web.zip"
+      ArtifactName: "drop"
+      publishLocation: "Container"
+
+  - task: AzureRmWebAppDeployment@4
+    displayName: "Deploy Azure App"
+    inputs:
+      ConnectionType: "AzureRM"
+      azureSubscription: "service-connection-zuhid"
+      appType: "webAppLinux"
+      WebAppName: "zuhid-app-web"
+      packageForLinux: "$(Build.ArtifactStagingDirectory)/web.zip"

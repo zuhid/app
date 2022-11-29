@@ -40,6 +40,8 @@ get "$baseUrl/List/Client" "" 401
 
 # call after authorization
 token=$(getToken "$baseUrl/Login" '{ "email": "admin@company.com", "password": "P@ssw0rd", "rememberMe": true }')
-get "$baseUrl/List/Exception" $token 200
 get "$baseUrl/List/Client" $token 200
 get "$baseUrl/user/id/b55ebae9-e380-4d96-97eb-a3d2a3d6fb9a" $token 200
+
+get "$baseUrl/List/Exception" $token 500
+get "$baseUrl/user/id/b55ebae9-e380-4d96-97eb-a3d2a3d6fb9Q" $token 400

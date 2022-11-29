@@ -9,7 +9,8 @@ public class UserEntity : BaseEntity {
   public string LastName { get; set; }
   public string PhoneNumber { get; set; }
   public bool TwoFactorEnabled { get; set; }
-  public string Roles { get; set; }
+  public string Role { get; set; }
   public string Clients { get; set; }
+  public string Policies { get; set; }
   public string LandingPage { get; set; }
 }

@@ -28,4 +28,6 @@ public class ListController : BaseController {
   [HttpGet("Role")]
   public async Task<List<string>> Role() => await repository.GetUniqueList<RoleEntity>();
 
+  [HttpGet("Policy")]
+  public async Task<List<string>> Policy() => await repository.GetUniqueList<PolicyEntity>();
 }

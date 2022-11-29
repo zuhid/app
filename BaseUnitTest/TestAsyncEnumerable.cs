@@ -1,6 +1,6 @@
 using System.Linq.Expressions;
 
-namespace Zuhid.BaseIntegrationTest;
+namespace Zuhid.BaseUnitTest;
 
 public class TestAsyncEnumerable<T> : EnumerableQuery<T>, IAsyncEnumerable<T>, IQueryable<T> {
   public TestAsyncEnumerable(IEnumerable<T> enumerable) : base(enumerable) { }

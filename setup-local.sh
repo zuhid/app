@@ -22,16 +22,19 @@ build-database-log() {
   docker exec dev-mssql /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P P@ssw0rd -d master -Q "
     if exists (select 1 from sys.databases where name = 'Log')
       drop database Log;
+    go
     create database Log;
+    go
     use Log;
+    go
     create table dbo.Log (
-      Id int not null identity,
-      Updated datetime2 null,
-      EventId nvarchar(100) null,
-      LogLevel nvarchar(100) null,
-      Category nvarchar(100) null,
-      Message nvarchar(max) null,
-      constraint PK_Common_Log primary key nonclustered(Id) with (fillfactor = 70),
+        Updated datetime2 null
+      , LogLevel nvarchar(100) null
+      , Category nvarchar(100) null
+      , EventId nvarchar(100) null
+      , EventName nvarchar(100) null
+      , State nvarchar(max) null
+      , Exception nvarchar(max) null
     )"
 }
 
@@ -40,7 +43,7 @@ start-api() { (
   dotnet run
 ); }
 
-# build-server
-# build-database "Identity"
+build-server
+build-database "Identity"
 build-database-log
 # start-api "Identity"

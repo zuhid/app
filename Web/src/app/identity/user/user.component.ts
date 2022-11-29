@@ -1,24 +1,27 @@
 import { Component, OnInit } from "@angular/core";
+import { environment } from "src/environments/environment";
 import { User } from "src/models";
 import { UserService } from "src/services";
-import { environment } from "src/environments/environment";
 
 @Component({ templateUrl: "./user.component.html" })
 export class UserComponent implements OnInit {
   public originalModelList = Array<User>();
   public userModelList = Array<User>();
-  public selectClient = `${environment.identityApi}/list/client`;
   public selectRole = `${environment.identityApi}/list/role`;
+  public selectClient = `${environment.identityApi}/list/client`;
+  public selectPolicy = `${environment.identityApi}/list/policy`;
 
   constructor(private userService: UserService) {}
 
   async ngOnInit(): Promise<void> {
     this.userModelList = await this.userService.get();
-    this.originalModelList = this.userModelList.map(obj => ({ ...obj }));
+    this.originalModelList = this.userModelList.map((obj) => ({ ...obj }));
   }
 
   add() {
-    this.userModelList.splice(0, 0, { email: this.userModelList.length.toString() } as User);
+    this.userModelList.splice(0, 0, {
+      email: this.userModelList.length.toString(),
+    } as User);
   }
 
   async save() {
@@ -26,7 +29,7 @@ export class UserComponent implements OnInit {
       if (model.id == null) {
         await this.userService.post(model);
       } else {
-        let originalModel = this.originalModelList.filter(n => n.id == model.id)[0];
+        let originalModel = this.originalModelList.filter((n) => n.id == model.id)[0];
         if (!this.isEqual(model, originalModel)) {
           await this.userService.put(model);
         }

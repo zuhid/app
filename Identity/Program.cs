@@ -11,11 +11,11 @@ public class Program {
     var appSetting = new AppSetting(builder.Configuration);
     builder.Services.AddBaseServices(appSetting.Name, appSetting.Version, appSetting.CorsOrigin, appSetting.Identity);
     builder.Services.AddDatabase<IDbContext, IdentityDbContext>(appSetting.IdentityDbContext);
+    builder.Services.AddDatabase<IIdentityDbContext, IdentityDbContext>(appSetting.IdentityDbContext);
+
+
     // builder.Services.AddIdentity<UserEntity, RoleEntity>().AddEntityFrameworkStores<IdentityDbContext>().AddDefaultTokenProviders();
-
     builder.Logging.AddProvider(new DatabaseLoggerProvider(appSetting.LogContext));
-
-
     builder.Services.AddScoped<ISecurityService, SecurityService>();
     builder.Services.AddScoped<IEmailService>(option => new TestEmailService(""));
     builder.Services.AddScoped<ISmsService>(option => new TestSmsService(""));

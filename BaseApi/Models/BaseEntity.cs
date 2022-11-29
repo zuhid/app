@@ -1,10 +1,10 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text.Json.Serialization;
 
 namespace Zuhid.BaseApi.Models;
 
 public class BaseEntity {
+  [Required]
   public Guid Id { get; set; }
 
   // [JsonIgnore]

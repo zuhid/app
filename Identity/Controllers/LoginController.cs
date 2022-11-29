@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Mvc;
 using Zuhid.BaseApi;
 using Zuhid.BaseApi.Models;
 using Zuhid.Identity.Repositories;
-using Zuhid.Identity.Validators;
 using Zuhid.Tools;
 
 namespace Zuhid.Identity.Controllers;
@@ -40,33 +39,21 @@ public class LoginController : ControllerBase {
   [AllowAnonymous]
   [HttpPost()]
   public async Task<Object> Login([FromBody] Login model) {
-    var loginEntity = await loginRepository.Get(model.Email);
-    if (loginEntity.Count > 0 && securityService.VerifyHashedPassword(loginEntity.FirstOrDefault().PasswordHash, model.Password)) {
+    var loginEntity = (await loginRepository.Get(model.Email)).FirstOrDefault();
+    if (loginEntity != null && securityService.VerifyHashedPassword(loginEntity.PasswordHash, model.Password)) {
+      var claims = loginEntity.Clients.Split(",").Select(client => new Claim("Client", client)).ToList();
+      claims.Add(new Claim("FirstName", loginEntity.FirstName));
+      claims.Add(new Claim("LastName", loginEntity.LastName));
+      claims.Add(new Claim("LandingPage", loginEntity.LandingPage));
+
       return new LoginResponse {
         Token = tokenService.Build(
-          loginEntity.FirstOrDefault().UserId,
-          loginEntity.Select(n => n.Client).Distinct().Select(client => new Claim("Client", client)).ToList(),
-          loginEntity.Select(role => role.Role).Distinct().ToList()
+          loginEntity.UserId,
+          loginEntity.Role.Split(","),
+          claims
         ),
-        LandingPage = loginEntity.FirstOrDefault().LandingPage
       };
     }
     throw new ApplicationException("Invalid Login");
   }
 }
-
-// curl -X 'POST' 'http://localhost:18011/Login/TfaToken' -H 'Content-Type: application/json' -d '"admin@company.com"'
-// private async Task<bool> TfaToken([FromBody] Login model) {
-//   // var userEntity = await userManager.FindByNameAsync(model.UserName);
-//   // if (userEntity != null) {
-//   //   var signInResult = await signInManager.CheckPasswordSignInAsync(userEntity, model.Password, false);
-//   //   if (signInResult.Succeeded && !string.IsNullOrWhiteSpace(userEntity.PhoneNumber)) {
-//   //     var token = await userManager.GenerateChangePhoneNumberTokenAsync(userEntity, userEntity.PhoneNumber);
-//   //     if (token != null) {
-//   //       return await smsService.Send(userEntity.PhoneNumber, token);
-//   //     }
-//   //   }
-//   // }
-//   throw new ApplicationException("Invalid Login");
-// }
-

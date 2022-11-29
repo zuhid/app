@@ -31,7 +31,9 @@
   },
   "[json]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
   "[shellscript]": { "editor.defaultFormatter": "foxundermoon.shell-format" },
-  "[typescript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.detectIndentation": false,
   "editor.formatOnSave": true,
@@ -53,6 +55,12 @@
     "editor.defaultFormatter": "ms-dotnettools.csharp"
   },
   "[properties]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "[dockerfile]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
   }
 }

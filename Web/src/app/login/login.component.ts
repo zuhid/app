@@ -14,6 +14,6 @@ export class LoginComponent {
   constructor(private identityService: IdentityService, private router: Router) {}
 
   async login() {
-    this.identityService.login(this.model).then(loginResponse => this.router.navigate([loginResponse.landingPage]));
+    this.identityService.login(this.model).then(() => this.router.navigate(["/identity/user"]));
   }
 }

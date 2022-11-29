@@ -5,9 +5,8 @@ using Zuhid.BaseIntegrationTest;
 namespace Zuhid.Identity.IntegrationTests.Api;
 
 [TestClass]
-public class ListTest : BaseTestApi {
-  public ListTest() : base("list/client", new Setting()) {
-  }
+public class ListRoleTest : BaseTestApi {
+  public ListRoleTest() : base("list/role", new Setting()) { }
 
   [TestMethod]
   public async Task RunTestSuite() {
@@ -16,7 +15,7 @@ public class ListTest : BaseTestApi {
 
   private async Task Get() {
     // arrange
-    var expected = new List<string> { "Amazon", "Google", "Microsoft" };
+    var expected = new List<string> { "Administrator", "AlphaUser", "Contact" };
 
     // act
     await testApiService.Get<string>("Anonymous user cannot access the url", url, HttpStatusCode.Unauthorized, null);

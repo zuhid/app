@@ -19,18 +19,17 @@ public class ActionFilter : IActionFilter {
     var objectResult = context.Result as ObjectResult;
     if (!context.ModelState.IsValid) {
       // log the bad request
-
-      logger.LogWarning(new EventId(400), path);
+      logger.LogWarning(GetActionEventId(
+        context.HttpContext.Request.Method, context.HttpContext.Request.Path),
+        JsonSerializer.Serialize(context.ModelState, jsonSerializerOptions)
+      );
       context.Result = new BadRequestObjectResult(context.ModelState);
     } else if (objectResult != null) {
       // log the valid response
       logger.LogInformation(
-        GetActionEventId(context.ActionDescriptor.RouteValues["action"]),
-        $"{path} -> f{JsonSerializer.Serialize(objectResult.Value, jsonSerializerOptions)}f",
-        "QQQQQQQQQQQQQQQQQQQQQQQQ",
-        "HHHHHHHHHHHHHHHHHHHHHHHH",
-        "EEEEEEEEEEEEEEEEEEEEEEEE"
-        );
+        GetActionEventId(context.HttpContext.Request.Method, context.HttpContext.Request.Path),
+        JsonSerializer.Serialize(objectResult.Value, jsonSerializerOptions)
+      );
     }
   }
 
@@ -40,13 +39,13 @@ public class ActionFilter : IActionFilter {
     Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping
   };
 
-  private static EventId GetActionEventId(string route) {
-    switch (route.ToUpper()) {
-      case "GET": return new EventId(100001);
-      case "ADD": return new EventId(100002);
-      case "UPDATE": return new EventId(100003);
-      case "DELETE": return new EventId(100004);
-      default: return new EventId(100000, route.ToUpper());
+  private static EventId GetActionEventId(string action, string path) {
+    switch (action.ToUpper()) {
+      case "GET": return new EventId(100001, path);
+      case "POST": return new EventId(100002, path);
+      case "PUT": return new EventId(100003, path);
+      case "DELETE": return new EventId(100004, path);
+      default: return new EventId(100000, $"{action}:{path}");
     }
   }
 

@@ -5,5 +5,5 @@ namespace Zuhid.BaseApi;
 
 public interface ITokenService {
   void Configure(JwtBearerOptions options);
-  string Build(Guid id, IList<Claim> claims, IList<string> roles);
+  string Build(Guid id, IList<string> roles, IList<Claim> claims);
 }

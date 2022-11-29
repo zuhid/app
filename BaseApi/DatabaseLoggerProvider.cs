@@ -5,7 +5,7 @@ public class DatabaseLoggerProvider : ILoggerProvider {
 
   public DatabaseLoggerProvider(string connString) => this.connString = connString;
 
-  public ILogger CreateLogger(string categoryName) => new DatabaseLogger(categoryName, connString);
+  public ILogger CreateLogger(string category) => new DatabaseLogger(category, connString);
 
   public void Dispose() { }
 }

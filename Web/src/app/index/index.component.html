@@ -1,6 +1,7 @@
 <nav class="navbar navbar-expand-lg bg-light">
   <div class="container-fluid">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navId" aria-controls="navId" aria-expanded="false">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navId" aria-controls="navId"
+      aria-expanded="false">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navId">
@@ -22,6 +23,9 @@
         <a class="nav-link" routerLink="/chart">Chart</a>
         <a class="nav-link" routerLink="/report">Report</a>
       </div>
+    </div>
+    <div class="d-flex">
+      <span class="navbar-text">{{tokenService.fullName}}</span>
     </div>
   </div>
 </nav>

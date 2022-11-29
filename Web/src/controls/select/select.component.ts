@@ -1,5 +1,5 @@
-import { Component, Input, forwardRef, OnInit } from "@angular/core";
-import { NG_VALUE_ACCESSOR, ControlValueAccessor } from "@angular/forms";
+import { Component, forwardRef, Input, OnInit } from "@angular/core";
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
 import { ApiService } from "src/services";
 import { BaseControlComponent } from "../baseControl";
 
@@ -20,7 +20,7 @@ export class SelectComponent extends BaseControlComponent implements ControlValu
   }
 
   ngOnInit(): void {
-    this.apiService.get(this.listUrl, "", true).then(res => {
+    this.apiService.get(this.listUrl, "", true).then((res) => {
       this.options = res.map((n: any) => n.text ?? n);
     });
   }

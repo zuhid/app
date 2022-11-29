@@ -4,7 +4,7 @@ using Zuhid.Identity.Entities;
 
 namespace Zuhid.Identity;
 
-public class IdentityDbContext : DbContext, IDbContext {
+public class IdentityDbContext : DbContext, IIdentityDbContext {
   public IdentityDbContext(DbContextOptions<IdentityDbContext> options) : base(options) { }
 
   protected override void OnModelCreating(ModelBuilder builder) {
@@ -20,6 +20,7 @@ public class IdentityDbContext : DbContext, IDbContext {
     // Data Seeding
     builder.LoadData<ClientEntity>();
     builder.LoadData<RoleEntity>();
+    builder.LoadData<PolicyEntity>();
     builder.LoadData<UserEntity>();
     builder.LoadData<UserToClientEntity>();
     builder.LoadData<UserToRoleEntity>();
@@ -27,6 +28,7 @@ public class IdentityDbContext : DbContext, IDbContext {
 
   public DbSet<ClientEntity> Client { get; set; }
   public DbSet<RoleEntity> Role { get; set; }
+  public DbSet<PolicyEntity> Policy { get; set; }
   public DbSet<UserEntity> User { get; set; }
   public DbSet<UserToClientEntity> UserToClient { get; set; }
   public DbSet<UserToRoleEntity> UserToRole { get; set; }

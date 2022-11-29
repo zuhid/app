@@ -15,8 +15,9 @@ public class UserRepository : BaseRepository<IdentityDbContext, User, UserEntity
     FirstName = entity.FirstName,
     LastName = entity.LastName,
     TwoFactorEnabled = entity.TwoFactorEnabled,
-    Roles = entity.Roles,
+    Role = entity.Role,
     Clients = entity.Clients,
+    Policies = entity.Policies,
     LandingPage = entity.LandingPage,
   });
 

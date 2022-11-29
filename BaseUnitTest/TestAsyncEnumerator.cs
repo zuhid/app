@@ -1,4 +1,4 @@
-namespace Zuhid.BaseIntegrationTest;
+namespace Zuhid.BaseUnitTest;
 
 public class TestAsyncEnumerator<T> : IAsyncEnumerator<T> {
   private readonly IEnumerator<T> inner;

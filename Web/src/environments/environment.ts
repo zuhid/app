@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   identityApi: "http://localhost:18001",
-  contactApi: "http://localhost:18001",
+  clientApi: "http://localhost:18002",
   secretKey: "secretKey",
   cacheDuration: 10 * 60 * 1000, // cache for 10 minutes
 };
