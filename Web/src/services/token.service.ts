@@ -9,19 +9,11 @@ export class TokenService {
   set token(value: any) {
     sessionStorage.setItem("identityToken", JSON.stringify(value));
   }
-  public isAuthenticated(): boolean {
-    return this.token != null && this.token.length > 0;
-  }
-  public get fullName() {
-    return `${this.payload.FirstName} ${this.payload.LastName}`.trim();
-  }
-  private get header() {
-    return JSON.parse(atob(this.token.split(".")[0])) ?? {};
-  }
-  private get payload() {
-    return JSON.parse(atob(this.token.split(".")[1])) ?? {};
-  }
-  private get signature() {
-    return JSON.parse(atob(this.token.split(".")[2])) ?? {};
-  }
+
+  public isAuthenticated = () => this.token != null && this.token.length > 0;
+  public fullName = () => `${this.payload().FirstName} ${this.payload().LastName}`.trim();
+
+  private header = () => JSON.parse(atob(this.token.split(".")[0])) ?? {};
+  private payload = () => JSON.parse(atob(this.token.split(".")[1])) ?? {};
+  private signature = () => JSON.parse(atob(this.token.split(".")[2])) ?? {};
 }
